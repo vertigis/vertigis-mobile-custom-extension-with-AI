@@ -11,22 +11,17 @@ jobs:
         runs-on: windows-latest
         steps:
             - uses: actions/checkout@v2
-
-            - name: Setup msbuild
-              uses: microsoft/setup-msbuild@v1
-
+            
             - uses: actions/setup-java@v2
               with:
                   distribution: 'microsoft'
                   java-version: '11'
 
-            - name: Restore NuGet packages
-              run: msbuild -t:restore
-              working-directory: App1
+            - name: Install .NET MAUI Workload
+              run: dotnet workload install maui@9.0.100
 
-            - name: msbuild
-              # TODO: Enable `-warnAsError` flag once package conflicts are resolved.
-              run: msbuild
+            - name: Build
+              run: dotnet publish -f net9.0-android
               working-directory: App1
     iOS:
         runs-on: macos-15
@@ -37,27 +32,27 @@ jobs:
             - name: Use Latest Xcode
               uses: maxim-lobanov/setup-xamarin@v1
               with:
-                  xcode-version: latest
+                  xcode-version: '26.0.1'
 
             - name: Install .NET MAUI Workload
-              run: dotnet workload install maui
+              run: dotnet workload install maui@9.0.100
 
             - name: Build
-              run: dotnet publish -f net8.0-ios /p:EnableCodeSigning=false
+              run: dotnet publish -f net9.0-ios /p:EnableCodeSigning=false
               working-directory: App1
     Windows:
         runs-on: windows-latest
         steps:
             - uses: actions/checkout@v2
 
-            - name: Setup msbuild
-              uses: microsoft/setup-msbuild@v1
-              
             - name: "Update windows SDK"
               uses: fbactions/setup-winsdk@v1
               with:
                 winsdk-build-version: 19041
 
+            - name: Install .NET MAUI Workload
+              run: dotnet workload install maui@9.0.100
+
             - name: Build
-              run: dotnet publish -f net8.0-windows10.0.19041.0
+              run: dotnet publish -f net9.0-windows10.0.19041.0
               working-directory: App1

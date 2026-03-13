@@ -33,6 +33,7 @@
 
 		<item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
 
+		<item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
 	</style>
 
 	<style name="AppTheme.Base" parent="Theme.MaterialComponents.Light.NoActionBar">
