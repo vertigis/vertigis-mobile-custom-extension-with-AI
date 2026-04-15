@@ -19,7 +19,7 @@ jobs:
                   
             - uses: actions/setup-dotnet@v5
               with:
-                dotnet-version: '8.0.x'
+                dotnet-version: '9.0.311'
 
             - name: Install .NET MAUI Workload
               run: dotnet workload install maui@9.0.120
@@ -40,7 +40,7 @@ jobs:
                   
             - uses: actions/setup-dotnet@v5
               with:
-                dotnet-version: '8.0.x'
+                dotnet-version: '9.0.311'
 
             - name: Install .NET MAUI Workload
               run: dotnet workload install maui@9.0.120
@@ -55,7 +55,7 @@ jobs:
                   
             - uses: actions/setup-dotnet@v5
               with:
-                dotnet-version: '8.0.x'
+                dotnet-version: '9.0.311'
 
             - name: "Update windows SDK"
               uses: fbactions/setup-winsdk@v1
