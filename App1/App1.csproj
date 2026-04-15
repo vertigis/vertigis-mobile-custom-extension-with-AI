@@ -6,7 +6,7 @@
 		<OutputType>Exe</OutputType>
 		<RootNamespace>App1</RootNamespace>
 		<UseMaui>true</UseMaui>
-		<MauiVersion>9.0.100</MauiVersion>
+		<MauiVersion>9.0.120</MauiVersion>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -57,7 +57,6 @@
 		<MauiAsset Include="Platforms\Windows\Assets\**">
 			<LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
 		</MauiAsset>
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
 		<None Remove="Assets\**" />
 	</ItemGroup>
 	
@@ -76,9 +75,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Esri.ArcGISRuntime" Version="200.7.0" />
-		<PackageReference Include="Esri.ArcGISRuntime.Maui" Version="200.7.0" />
-		<PackageReference Include="VertiGIS.Mobile" Version="5.40.0.347" /> 
+		<PackageReference Include="Esri.ArcGISRuntime" Version="200.8.1" />
+		<PackageReference Include="Esri.ArcGISRuntime.Maui" Version="200.8.1" />
+		<PackageReference Include="VertiGIS.Mobile" Version="5.41.0.265" /> 
 		<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
 		<PackageReference Include="Azure.Core" Version="1.45.0" />
 		<PackageReference Include="Azure.Identity" Version="1.13.2" />
