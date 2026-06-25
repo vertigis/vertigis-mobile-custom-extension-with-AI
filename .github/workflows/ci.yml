@@ -46,7 +46,7 @@ jobs:
             - name: Use Latest Xcode
               uses: maxim-lobanov/setup-xamarin@v1
               with:
-                  xcode-version: '26.3'
+                  xcode-version: '26.0.1'
 
             - name: Install .NET MAUI Workload
               run: dotnet workload install maui --ignore-failed-sources --version 9.0.311 --source https://api.nuget.org/v3/index.json
