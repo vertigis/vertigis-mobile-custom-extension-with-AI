@@ -21,8 +21,14 @@ jobs:
               with:
                 dotnet-version: '9.0.311'
 
+            - name: Confirm dotnet being used
+              run: |
+                where dotnet
+                dotnet --version
+                dotnet --info
+
             - name: Install .NET MAUI Workload
-              run: dotnet workload install maui@9.0.120
+              run: dotnet workload install maui@9.0.311
 
             - name: Build
               run: dotnet publish -f net9.0-android
@@ -40,10 +46,10 @@ jobs:
             - name: Use Latest Xcode
               uses: maxim-lobanov/setup-xamarin@v1
               with:
-                  xcode-version: '26.3'
+                  xcode-version: '26.0.1'
 
             - name: Install .NET MAUI Workload
-              run: dotnet workload install maui@9.0.120
+              run: dotnet workload install maui --ignore-failed-sources --version 9.0.311 --source https://api.nuget.org/v3/index.json
 
             - name: Build
               run: dotnet publish -f net9.0-ios /p:EnableCodeSigning=false
@@ -63,7 +69,7 @@ jobs:
                 winsdk-build-version: 19041
 
             - name: Install .NET MAUI Workload
-              run: dotnet workload install maui@9.0.120
+              run: dotnet workload install maui@9.0.311
 
             - name: Build
               run: dotnet publish -f net9.0-windows10.0.19041.0

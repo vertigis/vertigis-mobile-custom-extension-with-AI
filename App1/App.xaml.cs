@@ -16,13 +16,16 @@ namespace App1
             //var res = new Styles().Resources;
             //Resources.MergedDictionaries.Add(res);
 
-            MainPage = new ContentPage()
-            {
-                Content = GetContent()
-            };
-
             // Register additional assemblies to search for configured assembly attributes.
             AppManager.Instance.AssemblyManager.RegisterAssemblies(this.GetType().Assembly);
+        }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            return new Window(new ContentPage()
+            {
+                Content = GetContent()
+            });
         }
 
         private View GetContent()
@@ -36,12 +39,12 @@ namespace App1
             };
 
             // Spinner
-            var spinner = new ActivityIndicator()
+            var spinner = new ActivityIndicator
             {
-                IsRunning = true
+                IsRunning = true,
+                WidthRequest = 75,
+                HeightRequest = 75
             };
-            spinner.WidthRequest = 75;
-            spinner.HeightRequest = 75;
             stack.Children.Add(spinner);
 
             // Label
